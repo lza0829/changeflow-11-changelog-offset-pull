@@ -57,12 +57,13 @@ onMounted(async () => {
       <h3>历史 Runs</h3>
       <table>
         <thead>
-          <tr><th>ID</th><th>流</th><th>状态</th><th>loaded</th><th>applied</th><th>quarantine</th><th>skipped</th><th>cursor</th><th>时间</th></tr>
+          <tr><th>ID</th><th>流</th><th>类型</th><th>状态</th><th>loaded</th><th>applied</th><th>quarantine</th><th>skipped</th><th>cursor</th><th>时间</th></tr>
         </thead>
         <tbody>
           <tr v-for="r in runs" :key="r.id">
             <td>{{ r.id }}</td>
             <td>{{ r.stream_id }}</td>
+            <td>{{ r.kind }}</td>
             <td>{{ r.status }}</td>
             <td>{{ r.loaded_count }}</td>
             <td>{{ r.applied_count }}</td>

@@ -11,13 +11,14 @@ onMounted(async () => { rows.value = await getJSON('/api/ledger') })
     <div class="panel">
       <table>
         <thead>
-          <tr><th>ID</th><th>流</th><th>run</th><th>seq</th><th>op</th><th>entity</th><th>disposition</th><th>event_ts</th></tr>
+          <tr><th>ID</th><th>流</th><th>run</th><th>页</th><th>seq</th><th>op</th><th>entity</th><th>disposition</th><th>event_ts</th></tr>
         </thead>
         <tbody>
           <tr v-for="r in rows" :key="r.id">
             <td>{{ r.id }}</td>
             <td>{{ r.stream_id }}</td>
             <td>{{ r.run_id }}</td>
+            <td>{{ r.page_token || '—' }}</td>
             <td>{{ r.seq }}</td>
             <td>{{ r.op }}</td>
             <td>{{ r.entity_key }}</td>

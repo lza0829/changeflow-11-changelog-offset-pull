@@ -54,3 +54,9 @@ def list_quarantine(conn: sqlite3.Connection) -> list[dict[str, Any]]:
 
 def count_quarantine(conn: sqlite3.Connection) -> int:
     return int(conn.execute("SELECT COUNT(*) c FROM quarantine").fetchone()["c"])
+
+
+def count_by_run(conn: sqlite3.Connection, run_id: int) -> int:
+    return int(
+        conn.execute("SELECT COUNT(*) c FROM quarantine WHERE run_id=?", (run_id,)).fetchone()["c"]
+    )

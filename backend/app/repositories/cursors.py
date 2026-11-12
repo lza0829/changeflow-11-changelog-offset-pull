@@ -27,6 +27,14 @@ def mark_applied(conn: sqlite3.Connection, stream_id: int, seq: int, run_id: int
     )
 
 
+def count_applied_by_run(conn: sqlite3.Connection, run_id: int) -> int:
+    return int(
+        conn.execute(
+            "SELECT COUNT(*) c FROM applied_seqs WHERE run_id=?", (run_id,)
+        ).fetchone()["c"]
+    )
+
+
 def list_cursor_view(conn: sqlite3.Connection) -> list[dict[str, Any]]:
     rows = conn.execute(
         """

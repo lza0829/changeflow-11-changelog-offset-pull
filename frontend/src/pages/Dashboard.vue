@@ -24,7 +24,9 @@ onMounted(async () => {
       <div class="tile"><div class="hero-num">{{ stats.sink_count }}</div><div class="muted">Sink</div></div>
       <div class="tile"><div class="hero-num">{{ stats.quarantine_count }}</div><div class="muted">隔离</div></div>
       <div class="tile"><div class="hero-num">{{ stats.run_count }}</div><div class="muted">Apply Runs</div></div>
+      <div class="tile"><div class="hero-num">{{ stats.pull_task_count }}</div><div class="muted">拉取任务</div></div>
     </div>
     <router-link to="/apply">去应用台跑一趟 →</router-link>
+    <p><router-link to="/pull">去分页拉取逐页拉源 →</router-link></p>
   </div>
 </template>
